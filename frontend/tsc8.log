@@ -1,0 +1,2 @@
+﻿src/pages/AdminPurchasesPage.tsx(28,12): error TS6133: 'loadingDetail' is declared but its value is never read.
+

@@ -1,0 +1,17 @@
+
+> hoodal-backend@1.0.0 dev
+> nodemon src/index.ts
+
+[33m[nodemon] 3.1.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src\**\*[39m
+[33m[nodemon] watching extensions: ts[39m
+[32m[nodemon] starting `ts-node src/index.ts src/index.ts`[39m
+???? HOODAL Server running on port 3000
+???? Environment: development
+[DEBUG POS] Checking item: 8ed21341-2b2f-4b56-b317-c9f9eb489cb7, ShopId provided: 9fcb484e-22ef-467f-9ae1-703389fcc798
+[DEBUG POS] Product found: Walnuts (250g), Product ShopId: 7ca0a127-9649-485e-9c42-21879370316d
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/index.ts src/index.ts`[39m
+???? HOODAL Server running on port 3000
+???? Environment: development

@@ -1,0 +1,343 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  firstName    String?  @map("first_name")
+  lastName     String?  @map("last_name")
+  phone        String?
+  role         String   @default("CUSTOMER") // HOODAL_ADMIN, SHOP_ADMIN, CUSTOMER
+  shopId       String?  @map("shop_id")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  shop          Shop?          @relation("ShopStaff", fields: [shopId], references: [id])
+  ownedShops    Shop[]         @relation("ShopOwner")
+  Cart          Cart[]
+  Order         Order[]
+  StockHistory  StockHistory[]
+  UserAddress   UserAddress[]
+  UserPaymentMethod UserPaymentMethod[]
+  FavoriteShop  FavoriteShop[]
+
+  @@map("users")
+}
+
+model Shop {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  address     String?
+  phone       String?
+  imageUrl    String?  @map("image_url")
+  deliverySlots String? @map("delivery_slots")
+  latitude    Float?
+  longitude   Float?
+  isActive    Boolean  @default(true) @map("is_active")
+  ownerId     String   @map("owner_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  owner      User               @relation("ShopOwner", fields: [ownerId], references: [id])
+  staff      User[]             @relation("ShopStaff")
+  categories Category[]
+  products   Product[]
+  orders     Order[]
+  carts      Cart[]
+  suppliers         Supplier[]
+  purchases         Purchase[]
+  supplierPayments  SupplierPayment[]
+  expenses          Expense[]
+  FavoriteShop      FavoriteShop[]
+
+  @@map("shops")
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  shopId      String    @map("shop_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  shop    Shop      @relation(fields: [shopId], references: [id])
+  Product Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id            String    @id @default(uuid())
+  name          String
+  description   String?
+  categoryId    String?   @map("category_id")
+  shopId        String    @map("shop_id")
+  supplierId    String?   @map("supplier_id")
+  price         Float
+  costPrice     Float     @default(0) @map("cost_price")
+  gstRate       Float     @default(0) @map("gst_rate")
+  marginPercent Float?    @map("margin_percent")
+  imageUrl      String?   @map("image_url")
+  stockQuantity Int       @default(0) @map("stock_quantity")
+  isActive      Boolean   @default(true) @map("is_active")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  category      Category?      @relation(fields: [categoryId], references: [id])
+  shop          Shop           @relation(fields: [shopId], references: [id])
+  supplier      Supplier?      @relation(fields: [supplierId], references: [id])
+  CartItem      CartItem[]
+  OrderItem     OrderItem[]
+  StockHistory  StockHistory[]
+  PurchaseItem  PurchaseItem[]
+
+  @@map("products")
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String     @map("user_id")
+  shopId    String     @map("shop_id")
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+
+  user      User       @relation(fields: [userId], references: [id])
+  shop      Shop       @relation(fields: [shopId], references: [id])
+  CartItem  CartItem[]
+
+  @@unique([userId, shopId])
+  @@map("carts")
+}
+
+model CartItem {
+  id        String   @id @default(uuid())
+  cartId    String   @map("cart_id")
+  productId String   @map("product_id")
+  quantity  Int      @default(1)
+  price     Float
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@map("cart_items")
+}
+
+model Order {
+  id             String        @id @default(uuid())
+  orderNumber    String        @unique @map("order_number")
+  orderType      String        @default("ONLINE") @map("order_type") // ONLINE, POS
+  userId         String?       @map("user_id") // Optional for POS
+  shopId         String        @map("shop_id")
+  status         String        @default("PENDING")
+  subtotal       Float
+  tax            Float         @default(0) // Total GST amount
+  total          Float
+
+  deliveryName    String?      @map("delivery_name")
+  deliveryPhone   String?      @map("delivery_phone")
+  deliveryAddress String?      @map("delivery_address")
+  deliveryCity    String?      @map("delivery_city")
+  deliveryState   String?      @map("delivery_state")
+  deliveryPincode String?      @map("delivery_pincode")
+  deliverySlot    String?      @map("delivery_slot")
+
+  paymentMethod  String?       @map("payment_method")
+  paymentStatus  String        @default("PENDING") @map("payment_status")
+  paymentId      String?       @map("payment_id")
+
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+
+  user           User?         @relation(fields: [userId], references: [id])
+  shop           Shop          @relation(fields: [shopId], references: [id])
+  OrderItem      OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id          String   @id @default(uuid())
+  orderId     String   @map("order_id")
+  productId   String   @map("product_id")
+  productName String   @map("product_name")
+  quantity    Int
+  price       Float
+  gstRate     Float    @default(0) @map("gst_rate")
+  gstAmount   Float    @default(0) @map("gst_amount")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product     Product  @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+model StockHistory {
+  id               String   @id @default(uuid())
+  productId        String   @map("product_id")
+  changeType       String   @map("change_type")
+  quantityChange   Int      @map("quantity_change")
+  previousQuantity Int      @map("previous_quantity")
+  newQuantity      Int      @map("new_quantity")
+  referenceType    String?  @map("reference_type")
+  referenceId      String?  @map("reference_id")
+  notes            String?
+  createdBy        String   @map("created_by")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  product          Product  @relation(fields: [productId], references: [id])
+  user             User     @relation(fields: [createdBy], references: [id])
+
+  @@map("stock_history")
+}
+
+model Supplier {
+  id        String   @id @default(uuid())
+  name      String
+  contact   String?
+  email     String?
+  address   String?
+  gst       String?
+  shopId    String   @map("shop_id")
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  shop            Shop              @relation(fields: [shopId], references: [id])
+  products        Product[]
+  purchases       Purchase[]
+  supplierPayments SupplierPayment[]
+
+  @@map("suppliers")
+}
+
+model Purchase {
+  id            String   @id @default(uuid())
+  supplierId    String   @map("supplier_id")
+  shopId        String   @map("shop_id")
+  totalAmount   Float    @map("total_amount")
+  amountPaid    Float    @default(0) @map("amount_paid")
+  paymentStatus String   @default("PENDING") @map("payment_status") // PENDING, PARTIAL, PAID
+  orderDate     DateTime @default(now()) @map("order_date")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  supplier         Supplier          @relation(fields: [supplierId], references: [id])
+  shop             Shop              @relation(fields: [shopId], references: [id])
+  PurchaseItem     PurchaseItem[]
+  supplierPayments SupplierPayment[]
+
+  @@map("purchases")
+}
+
+model PurchaseItem {
+  id               String   @id @default(uuid())
+  purchaseId       String   @map("purchase_id")
+  productId        String   @map("product_id")
+  quantity         Int
+  unitType         String   @default("PCS") @map("unit_type")       // PCS, OUTER, BOX
+  conversionFactor Int      @default(1) @map("conversion_factor")   // e.g. OUTER=12, BOX=24
+  pcsQuantity      Int      @default(0) @map("pcs_quantity")        // quantity * conversionFactor
+  price            Float
+  gstRate          Float    @default(0) @map("gst_rate")
+  gstAmount        Float    @default(0) @map("gst_amount")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  purchase Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  product  Product  @relation(fields: [productId], references: [id])
+
+  @@map("purchase_items")
+}
+
+model SupplierPayment {
+  id           String   @id @default(uuid())
+  supplierId   String   @map("supplier_id")
+  shopId       String   @map("shop_id")
+  purchaseId   String?  @map("purchase_id")
+  amount       Float
+  paymentMode  String   @map("payment_mode") // CASH, UPI, BANK_TRANSFER
+  referenceNo  String?  @map("reference_no")
+  date         DateTime @default(now())
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  supplier Supplier @relation(fields: [supplierId], references: [id])
+  shop     Shop     @relation(fields: [shopId], references: [id])
+  purchase Purchase? @relation(fields: [purchaseId], references: [id])
+
+  @@map("supplier_payments")
+}
+
+model Expense {
+  id          String   @id @default(uuid())
+  shopId      String   @map("shop_id")
+  category    String   // RENT, SALARY, ELECTRICITY, WATER, INTERNET, MAINTENANCE, OTHER
+  amount      Float
+  paymentMode String   @map("payment_mode") // CASH, UPI, BANK_TRANSFER
+  referenceNo String?  @map("reference_no")
+  date        DateTime @default(now())
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  shop Shop @relation(fields: [shopId], references: [id])
+
+  @@map("expenses")
+}
+
+model UserAddress {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  label     String   // HOME, WORK, OTHER
+  name      String
+  phone     String
+  address   String
+  city      String
+  state     String
+  pincode   String
+  isDefault Boolean  @default(false) @map("is_default")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_addresses")
+}
+
+model UserPaymentMethod {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  type       String   // UPI, CARD
+  provider   String?  // GPay, PhonePe, Visa, Mastercard
+  identifier String   // e.g. user@ybl or **** 1234
+  isDefault  Boolean  @default(false) @map("is_default")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_payment_methods")
+}
+
+model FavoriteShop {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  shopId    String   @map("shop_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, shopId])
+  @@map("favorite_shops")
+}

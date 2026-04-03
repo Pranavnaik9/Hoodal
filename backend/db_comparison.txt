@@ -1,0 +1,127 @@
+--- Admin Users ---
+User: admin@freshmart.com, Role: SHOP_ADMIN, ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798
+User: admin@dailyneeds.com, Role: SHOP_ADMIN, ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b
+User: admin@greenbasket.com, Role: SHOP_ADMIN, ShopId: 7ca0a127-9649-485e-9c42-21879370316d
+User: pranavnaik1096@gmail.com, Role: SHOP_ADMIN, ShopId: 6faac0d8-386c-4d7d-82c8-0ca960614bbc
+
+--- Products ---
+Product: Full Cream Milk (1L), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Toned Milk (1L), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Buffalo Milk (1L), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Cow Milk (500ml), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Fresh Curd (500g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Paneer (200g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Amul Butter (100g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Ghee (500g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Cheese Slice (10 pcs), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Basmati Rice (1kg), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Atta (1kg), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Toor Dal (500g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Sugar (1kg), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Sunflower Oil (1L), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Coca Cola (750ml), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Frooti (600ml), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Real Juice (1L), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Lassi (250ml), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Parle-G (250g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Good Day (75g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Lays Classic (52g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Haldiram Bhujia (200g), ShopId: 9fcb484e-22ef-467f-9ae1-703389fcc798, ShopName: Fresh Mart
+  MATCH FOUND with user admin@freshmart.com
+Product: Surf Excel (1kg), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Vim Bar (200g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Harpic (500ml), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Colin Glass Cleaner (500ml), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Dove Shampoo (340ml), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Lux Soap (150g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Colgate Toothpaste (200g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Dettol Handwash (200ml), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Nivea Body Lotion (200ml), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: MDH Garam Masala (100g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Everest Turmeric (100g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Maggi Sauce (500g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Saffola Oil (1L), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Tata Salt (1kg), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Classmate Notebook, ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Reynolds Pen (5 pack), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Fevicol (50g), ShopId: e9f5d433-965b-4713-8c7c-f72983d3d89b, ShopName: Daily Needs Store
+  MATCH FOUND with user admin@dailyneeds.com
+Product: Alphonso Mango (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Apple (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Banana (1 dozen), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Grapes (500g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Pomegranate (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Tomato (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Potato (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Onion (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Capsicum (250g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Spinach (bunch), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Organic Honey (500g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Organic Ghee (500g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Organic Jaggery (500g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Organic Brown Rice (1kg), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Almonds (250g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Cashews (250g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Raisins (250g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Walnuts (250g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Gulab Jamun (500g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Kaju Katli (250g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com
+Product: Rasgulla (500g), ShopId: 7ca0a127-9649-485e-9c42-21879370316d, ShopName: Green Basket
+  MATCH FOUND with user admin@greenbasket.com

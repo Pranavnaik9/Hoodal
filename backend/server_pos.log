@@ -1,0 +1,26 @@
+
+> hoodal-backend@1.0.0 dev
+> nodemon src/index.ts
+
+[33m[nodemon] 3.1.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src\**\*[39m
+[33m[nodemon] watching extensions: ts[39m
+[32m[nodemon] starting `ts-node src/index.ts src/index.ts`[39m
+???? HOODAL Server running on port 3000
+???? Environment: development
+[POS DEBUG] Checking Product ID: 09265c75-4e4d-4f48-8e7c-55867d1ef750
+[POS DEBUG] Expected ShopId: "9fcb484e-22ef-467f-9ae1-703389fcc798"
+[POS DEBUG] Product found: "Rasgulla (500g)", its ShopId: "7ca0a127-9649-485e-9c42-21879370316d"
+[POS DEBUG] Checking Product ID: 09265c75-4e4d-4f48-8e7c-55867d1ef750
+[POS DEBUG] Expected ShopId: "9fcb484e-22ef-467f-9ae1-703389fcc798"
+[POS DEBUG] Product found: "Rasgulla (500g)", its ShopId: "7ca0a127-9649-485e-9c42-21879370316d"
+[POS DEBUG] Checking Product ID: 09265c75-4e4d-4f48-8e7c-55867d1ef750
+[POS DEBUG] Expected ShopId: "9fcb484e-22ef-467f-9ae1-703389fcc798"
+[POS DEBUG] Product found: "Rasgulla (500g)", its ShopId: "7ca0a127-9649-485e-9c42-21879370316d"
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/index.ts src/index.ts`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/index.ts src/index.ts`[39m
+???? HOODAL Server running on port 3000
+???? Environment: development

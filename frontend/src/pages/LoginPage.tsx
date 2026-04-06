@@ -112,23 +112,6 @@ export function LoginPage() {
                         </Link>
                     </p>
 
-                    <div className="mt-6 pt-6 border-t border-white/10">
-                        <p className="text-gray-500 text-xs text-center mb-3">Demo Accounts</p>
-                        <div className="grid grid-cols-1 gap-2 text-xs">
-                            <div className="bg-white/5 rounded-lg p-2 flex justify-between text-gray-400">
-                                <span>Platform Admin</span>
-                                <span className="text-gray-300">admin@hoodal.com / hoodal123</span>
-                            </div>
-                            <div className="bg-white/5 rounded-lg p-2 flex justify-between text-gray-400">
-                                <span>Shop Admin</span>
-                                <span className="text-gray-300">admin@freshmart.com / shop123</span>
-                            </div>
-                            <div className="bg-white/5 rounded-lg p-2 flex justify-between text-gray-400">
-                                <span>Customer</span>
-                                <span className="text-gray-300">customer@test.com / customer123</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -72,3 +72,76 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* ============= HTML5 QR CODE SCANNER CUSTOMIZATION ============= */
+.qr-reader-container { 
+  background: transparent; 
+  border: none !important;
+}
+
+/* Hide the default dotted border of the reader */
+#reader {
+  border: none !important;
+}
+
+/* Style the main Action Button (Request Camera / Start / Stop) */
+#reader button { 
+  background: linear-gradient(to right, #4f46e5, #9333ea) !important;
+  color: white !important; 
+  border: none !important; 
+  padding: 10px 20px !important; 
+  border-radius: 12px !important; 
+  margin-top: 10px !important; 
+  margin-bottom: 10px !important;
+  cursor: pointer !important; 
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  width: 100% !important;
+  max-width: 300px !important;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39) !important;
+  transition: all 0.2s ease !important;
+}
+
+#reader button:hover {
+  opacity: 0.9 !important;
+}
+
+/* Style the Video Element */
+#reader video { 
+  border-radius: 16px !important; 
+  width: 100% !important;
+  object-fit: cover !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Style the text elements ("Request camera permissions", etc) */
+#reader span, #reader div {
+  color: #94a3b8 !important; /* text-gray-400 */
+}
+
+/* Style the toggles ("Scan an Image File" / "Scan using camera directly") */
+#reader a {
+  color: #818cf8 !important; /* text-indigo-400 */
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  margin: 10px 0 !important;
+  padding: 8px 16px !important;
+  background: rgba(99, 102, 241, 0.1) !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Style the file input button */
+#reader input[type="file"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 300px !important;
+  margin: 10px auto !important;
+  color: #cbd5e1 !important;
+  background: rgba(255,255,255,0.05) !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+

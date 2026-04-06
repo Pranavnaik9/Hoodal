@@ -77,7 +77,7 @@ export function CheckoutPage() {
                         <form onSubmit={handleSubmit(onSubmit)} id="checkout-form" className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
                             <h2 className="text-white font-semibold flex items-center gap-2"><MapPin className="h-5 w-5 text-indigo-400" /> Delivery Details</h2>
 
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <div>
                                     <label className="text-gray-400 text-sm">Full Name</label>
                                     <input {...register('deliveryName')} className={inputCls} placeholder="Full Name" />
@@ -96,7 +96,7 @@ export function CheckoutPage() {
                                 {errors.deliveryAddress && <p className="text-red-400 text-xs mt-1">{errors.deliveryAddress.message}</p>}
                             </div>
 
-                            <div className="grid grid-cols-3 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div>
                                     <label className="text-gray-400 text-sm">City</label>
                                     <input {...register('deliveryCity')} className={inputCls} placeholder="City" />

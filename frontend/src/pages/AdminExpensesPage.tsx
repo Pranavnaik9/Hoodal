@@ -91,6 +91,7 @@ export function AdminExpensesPage() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="table-responsive">
                 <table className="w-full">
                     <thead className="bg-white/5">
                         <tr className="text-gray-400 text-xs uppercase">
@@ -138,6 +139,7 @@ export function AdminExpensesPage() {
                         ))}
                     </tbody>
                 </table>
+                </div>
                 {filtered.length === 0 && <p className="text-center text-gray-500 py-8">No expenses logged yet</p>}
             </div>
 
@@ -146,7 +148,7 @@ export function AdminExpensesPage() {
                     <div className="bg-slate-800 rounded-2xl w-full max-w-md border border-white/10 p-6">
                         <h3 className="text-xl font-bold text-white mb-6">{formData.id ? 'Edit Expense' : 'Log Expense'}</h3>
                         <form onSubmit={handleSubmit} className="space-y-4">
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-300 mb-1">Date</label>
                                     <input type="date" required value={formData.date} onChange={e => setFormData({ ...formData, date: e.target.value })} className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-2 text-white" />
@@ -157,7 +159,7 @@ export function AdminExpensesPage() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-300 mb-1">Category</label>
                                     <select required value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })} className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-2 text-white">

@@ -38,25 +38,29 @@ export function CustomerLayout() {
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Sidebar */}
                     <nav className="lg:w-64 flex-shrink-0">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sticky top-4 space-y-1">
-                            <div className="mb-6 px-4 py-2">
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sticky top-4">
+                            <div className="mb-6 px-4 py-2 hidden lg:block">
                                 <p className="text-sm text-gray-400">Welcome back,</p>
                                 <p className="text-lg font-bold text-white truncate">{user?.firstName || user?.email}</p>
                             </div>
 
+                            <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 -mx-2 px-2 lg:mx-0 lg:px-0 scrollbar-hide">
                             {links.map(l => (
                                 <NavLink key={l.to} to={l.to} end={l.end} className={({ isActive }) => linkCls(isActive)}>
-                                    <l.icon className="h-5 w-5" /> {l.label}
+                                    <l.icon className="h-5 w-5 shrink-0" />
+                                    <span className="whitespace-nowrap">{l.label}</span>
                                 </NavLink>
                             ))}
+                            </div>
 
-                            <div className="border-t border-white/10 my-4"></div>
+                            <div className="border-t border-white/10 my-4 hidden lg:block"></div>
 
                             <button
                                 onClick={handleLogout}
-                                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
+                                className="w-full flex items-center justify-center lg:justify-start gap-3 px-4 py-3 rounded-xl text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors mt-2 lg:mt-0"
                             >
-                                <LogOut className="h-5 w-5" /> Logout
+                                <LogOut className="h-5 w-5 shrink-0" />
+                                <span className="whitespace-nowrap">Logout</span>
                             </button>
                         </div>
                     </nav>

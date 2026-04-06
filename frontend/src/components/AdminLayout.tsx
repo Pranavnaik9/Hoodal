@@ -48,21 +48,27 @@ export function AdminLayout() {
                 <div className="flex flex-col lg:flex-row gap-6">
                     {/* Sidebar */}
                     <nav className="lg:w-56 flex-shrink-0">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-3 space-y-1 lg:sticky lg:top-4">
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-3 lg:sticky lg:top-4">
+                            <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 -mx-1 px-1 lg:mx-0 lg:px-0 scrollbar-hide">
                             {links.map(l => (
                                 <NavLink key={l.to} to={l.to} end={l.end} className={({ isActive }) => linkCls(isActive)}>
                                     <l.icon className="h-4 w-4" /> {l.label}
                                 </NavLink>
-                            ))}
+                            ))
+                            }
+                            </div>
 
                             {/* Separator */}
-                            <div className="border-t border-white/5 !my-2"></div>
+                            <div className="border-t border-white/5 my-2"></div>
+
+                            <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible -mx-1 px-1 lg:mx-0 lg:px-0 scrollbar-hide">
 
                             {bottomLinks.map(l => (
                                 <NavLink key={l.to} to={l.to} end={l.end} className={({ isActive }) => linkCls(isActive)}>
                                     <l.icon className="h-4 w-4" /> {l.label}
                                 </NavLink>
                             ))}
+                            </div>
                         </div>
                     </nav>
 

@@ -1,32 +1,37 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
-import { ShoppingCart, User, LogOut, LayoutDashboard, Store, Home, Map, QrCode, Heart } from 'lucide-react';
+import { ShoppingCart, User, LogOut, LayoutDashboard, Store, Home, Map, QrCode, Heart, Menu, X } from 'lucide-react';
 import { QRScannerModal } from './QRScannerModal';
 
 export function Navbar() {
     const { isAuthenticated, user, logout } = useAuthStore();
     const navigate = useNavigate();
     const [isScannerOpen, setIsScannerOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const handleLogout = () => {
         logout();
         navigate('/login');
+        setMobileMenuOpen(false);
     };
+
+    const closeMobile = () => setMobileMenuOpen(false);
 
     return (
         <nav className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-xl border-b border-indigo-500/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
-                        <Link to="/" className="flex items-center space-x-2">
+                        <Link to="/" className="flex items-center space-x-2" onClick={closeMobile}>
                             <Store className="h-8 w-8 text-indigo-400" />
                             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
                                 HOODAL
                             </span>
                         </Link>
 
-                        <div className="ml-10 flex items-center space-x-4">
+                        {/* Desktop nav links */}
+                        <div className="ml-10 hidden md:flex items-center space-x-4">
                             {(!isAuthenticated || user?.role === 'CUSTOMER') && (
                                 <>
                                     <Link
@@ -48,7 +53,8 @@ export function Navbar() {
                         </div>
                     </div>
 
-                    <div className="flex items-center space-x-4">
+                    {/* Desktop right side */}
+                    <div className="hidden md:flex items-center space-x-4">
                         <button 
                             onClick={() => setIsScannerOpen(true)}
                             className="flex justify-center items-center gap-2 bg-indigo-500/10 text-indigo-400 px-3 py-1.5 rounded-lg hover:bg-indigo-500/20 transition-all font-medium text-sm border border-indigo-500/20 shadow-lg shadow-indigo-500/10"
@@ -141,8 +147,113 @@ export function Navbar() {
                             </>
                         )}
                     </div>
+
+                    {/* Mobile hamburger */}
+                    <div className="md:hidden flex items-center gap-2">
+                        <button 
+                            onClick={() => setIsScannerOpen(true)}
+                            className="flex justify-center items-center bg-indigo-500/10 text-indigo-400 p-2 rounded-lg border border-indigo-500/20"
+                        >
+                            <QrCode className="h-4 w-4" />
+                        </button>
+                        {isAuthenticated && user?.role === 'CUSTOMER' && (
+                            <Link to="/cart" className="text-gray-300 p-2">
+                                <ShoppingCart className="h-5 w-5" />
+                            </Link>
+                        )}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="text-gray-300 p-2 hover:text-white transition-colors"
+                        >
+                            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            {/* Mobile slide-down menu */}
+            {mobileMenuOpen && (
+                <div className="md:hidden border-t border-white/10 bg-slate-900/95 backdrop-blur-xl animate-in slide-in-from-top-2 duration-200">
+                    <div className="px-4 py-4 space-y-2">
+                        {(!isAuthenticated || user?.role === 'CUSTOMER') && (
+                            <>
+                                <Link to="/marketplace" onClick={closeMobile}
+                                    className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                    <Home className="h-5 w-5 text-indigo-400" /> Shops
+                                </Link>
+                                <Link to="/explore" onClick={closeMobile}
+                                    className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                    <Map className="h-5 w-5 text-indigo-400" /> Explore
+                                </Link>
+                            </>
+                        )}
+
+                        {isAuthenticated ? (
+                            <>
+                                {user?.role === 'HOODAL_ADMIN' && (
+                                    <Link to="/hoodal-admin" onClick={closeMobile}
+                                        className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                        <LayoutDashboard className="h-5 w-5 text-indigo-400" /> Admin Panel
+                                    </Link>
+                                )}
+                                {user?.role === 'SHOP_ADMIN' && (
+                                    <Link to="/admin" onClick={closeMobile}
+                                        className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                        <LayoutDashboard className="h-5 w-5 text-indigo-400" /> My Shop
+                                    </Link>
+                                )}
+                                {user?.role === 'CUSTOMER' && (
+                                    <>
+                                        <Link to="/profile/favorites" onClick={closeMobile}
+                                            className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                            <Heart className="h-5 w-5 text-indigo-400" /> Favorites
+                                        </Link>
+                                        <Link to="/cart" onClick={closeMobile}
+                                            className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                            <ShoppingCart className="h-5 w-5 text-indigo-400" /> Cart
+                                        </Link>
+                                        <Link to="/profile" onClick={closeMobile}
+                                            className="flex items-center gap-3 px-3 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                                            <User className="h-5 w-5 text-indigo-400" /> Profile
+                                        </Link>
+                                    </>
+                                )}
+
+                                {/* User info + logout */}
+                                <div className="border-t border-white/10 mt-2 pt-3">
+                                    <div className="flex items-center justify-between px-3 py-2">
+                                        <div className="flex items-center gap-2">
+                                            <User className="h-5 w-5 text-gray-500" />
+                                            <div>
+                                                <p className="text-sm text-gray-300">{user?.firstName || user?.email}</p>
+                                                <p className="text-xs text-indigo-400">
+                                                    {user?.role === 'HOODAL_ADMIN' ? 'Platform Admin' :
+                                                        user?.role === 'SHOP_ADMIN' ? (user?.shopName || 'Shop Admin') :
+                                                            'Customer'}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button onClick={handleLogout} className="text-gray-400 hover:text-red-400 p-2">
+                                            <LogOut className="h-5 w-5" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="flex flex-col gap-2 pt-2 border-t border-white/10 mt-2">
+                                <Link to="/login" onClick={closeMobile}
+                                    className="text-center text-gray-300 hover:text-white py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors">
+                                    Login
+                                </Link>
+                                <Link to="/register" onClick={closeMobile}
+                                    className="text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2.5 rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all">
+                                    Register
+                                </Link>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
             <QRScannerModal isOpen={isScannerOpen} onClose={() => setIsScannerOpen(false)} />
         </nav>
     );

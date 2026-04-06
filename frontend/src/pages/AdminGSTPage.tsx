@@ -87,6 +87,7 @@ export function AdminGSTPage() {
                     {allSlabRates.length > 0 && (
                         <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
                             <h3 className="text-lg font-bold text-white p-4 border-b border-white/10">GST Slab-wise Breakdown</h3>
+                            <div className="table-responsive">
                             <table className="w-full">
                                 <thead className="bg-white/5">
                                     <tr className="text-gray-400 text-xs uppercase">
@@ -116,6 +117,7 @@ export function AdminGSTPage() {
                                     })}
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     )}
                 </>

@@ -152,7 +152,7 @@ export function AdminProfilePage() {
 
     return (
         <div className="max-w-2xl mx-auto">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
                 <h2 className="text-2xl font-bold text-white">{t('profile.title')}</h2>
                 {!editing ? (
                     <button
@@ -214,12 +214,12 @@ export function AdminProfilePage() {
                         { icon: Mail, label: t('profile.email'), value: profile?.email, state: email, setter: setEmail, type: 'email' },
                         { icon: Phone, label: t('profile.phone'), value: profile?.phone, state: phone, setter: setPhone },
                     ].map((field, i) => (
-                        <div key={i} className="flex items-center px-6 py-4">
-                            <div className="flex items-center gap-3 w-40">
+                        <div key={i} className="flex flex-col sm:flex-row sm:items-center px-4 sm:px-6 py-4 gap-1 sm:gap-0">
+                            <div className="flex items-center gap-3 sm:w-40">
                                 <field.icon className="h-4 w-4 text-gray-500" />
                                 <span className="text-sm text-gray-400">{field.label}</span>
                             </div>
-                            <div className="flex-1">
+                            <div className="flex-1 pl-7 sm:pl-0">
                                 {editing ? (
                                     <input
                                         type={field.type || 'text'}
@@ -236,20 +236,20 @@ export function AdminProfilePage() {
                     ))}
 
                     {/* Read-only fields */}
-                    <div className="flex items-center px-6 py-4">
-                        <div className="flex items-center gap-3 w-40">
+                    <div className="flex flex-col sm:flex-row sm:items-center px-4 sm:px-6 py-4 gap-1 sm:gap-0">
+                        <div className="flex items-center gap-3 sm:w-40">
                             <Shield className="h-4 w-4 text-gray-500" />
                             <span className="text-sm text-gray-400">{t('profile.role')}</span>
                         </div>
-                        <div className="flex-1">{getRoleBadge(profile?.role)}</div>
+                        <div className="flex-1 pl-7 sm:pl-0">{getRoleBadge(profile?.role)}</div>
                     </div>
 
-                    <div className="flex items-center px-6 py-4">
-                        <div className="flex items-center gap-3 w-40">
+                    <div className="flex flex-col sm:flex-row sm:items-center px-4 sm:px-6 py-4 gap-1 sm:gap-0">
+                        <div className="flex items-center gap-3 sm:w-40">
                             <Calendar className="h-4 w-4 text-gray-500" />
                             <span className="text-sm text-gray-400">{t('profile.memberSince')}</span>
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 pl-7 sm:pl-0">
                             <span className="text-white text-sm font-medium">
                                 {profile?.createdAt
                                     ? new Date(profile.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -259,12 +259,12 @@ export function AdminProfilePage() {
                     </div>
 
                     {profile?.shop && (
-                        <div className="flex items-center px-6 py-4">
-                            <div className="flex items-center gap-3 w-40">
+                        <div className="flex flex-col sm:flex-row sm:items-center px-4 sm:px-6 py-4 gap-1 sm:gap-0">
+                            <div className="flex items-center gap-3 sm:w-40">
                                 <Store className="h-4 w-4 text-gray-500" />
                                 <span className="text-sm text-gray-400">{t('profile.shop')}</span>
                             </div>
-                            <div className="flex-1">
+                            <div className="flex-1 pl-7 sm:pl-0">
                                 <span className="text-white text-sm font-medium">{profile.shop.name}</span>
                             </div>
                         </div>

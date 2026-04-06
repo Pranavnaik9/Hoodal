@@ -134,7 +134,7 @@ export function AdminPOSPage() {
     }
 
     return (
-        <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-80px)]">
+        <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[calc(100vh-80px)]">
             {/* Left Side: Products Grid */}
             <div className="flex-1 flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
                 <div className="p-4 border-b border-white/10">
@@ -150,8 +150,8 @@ export function AdminPOSPage() {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-4">
-                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div className="flex-1 overflow-y-auto p-4 min-h-[400px] lg:min-h-0">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
                         {filteredProducts.map(product => (
                             <button
                                 key={product.id}
@@ -195,7 +195,7 @@ export function AdminPOSPage() {
             </div>
 
             {/* Right Side: Cart / Checkout */}
-            <div className="w-full lg:w-96 flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden shrink-0">
+            <div className="w-full lg:w-96 flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden shrink-0 h-[500px] lg:h-auto">
                 <div className="p-4 border-b border-white/10 flex justify-between items-center bg-white/5">
                     <h2 className="text-lg font-bold text-white flex items-center gap-2">
                         <ShoppingBag className="w-5 h-5 text-indigo-400" />

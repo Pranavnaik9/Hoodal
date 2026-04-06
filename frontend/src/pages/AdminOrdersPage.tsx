@@ -43,7 +43,7 @@ export function AdminOrdersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Online Orders</h2>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 mb-6">
                 <button onClick={() => setStatusFilter('')} className={`text-center p-2 rounded-xl text-xs transition-colors ${!statusFilter ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30' : 'bg-white/5 text-gray-400 border border-white/10 hover:border-indigo-500/20'}`}>
                     All ({orders.length})
                 </button>
@@ -60,7 +60,7 @@ export function AdminOrdersPage() {
                 <div className="space-y-3">
                     {filtered.map(order => (
                         <div key={order.id} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-                            <div className="p-4 flex items-center justify-between cursor-pointer hover:bg-white/5 transition-colors" onClick={() => setExpandedId(expandedId === order.id ? null : order.id)}>
+                            <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 cursor-pointer hover:bg-white/5 transition-colors" onClick={() => setExpandedId(expandedId === order.id ? null : order.id)}>
                                 <div className="flex items-center gap-4">
                                     <div className="bg-indigo-500/20 p-2 rounded-lg"><Package className="h-5 w-5 text-indigo-400" /></div>
                                     <div>
@@ -77,7 +77,7 @@ export function AdminOrdersPage() {
 
                             {expandedId === order.id && (
                                 <div className="border-t border-white/10 p-4">
-                                    <div className="grid grid-cols-2 gap-4 mb-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                         <div>
                                             <h4 className="text-gray-400 text-xs mb-1">Customer</h4>
                                             <p className="text-white text-sm">{order.user?.firstName} {order.user?.lastName}</p>

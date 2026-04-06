@@ -94,7 +94,7 @@ export function AdminProductFormPage() {
                     <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} className={inputCls} rows={3} placeholder="Description" />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label className="text-gray-400 text-sm">Category</label>
                         <select value={form.categoryId} onChange={e => setForm({ ...form, categoryId: e.target.value })} className={inputCls}>
@@ -104,14 +104,14 @@ export function AdminProductFormPage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label className="text-gray-400 text-sm">Image URL</label>
                         <input value={form.imageUrl} onChange={e => setForm({ ...form, imageUrl: e.target.value })} className={inputCls} placeholder="https://..." />
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 bg-black/20 p-4 rounded-xl border border-white/5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 bg-black/20 p-4 rounded-xl border border-white/5">
                     <div>
                         <label className="text-gray-400 text-xs uppercase tracking-wider font-semibold mb-1 block">Base Cost (₹)</label>
                         <input type="number" min="0" step="0.01" value={form.costPrice}
@@ -215,7 +215,7 @@ export function AdminProductFormPage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label className="text-gray-400 text-sm">Stock Quantity *</label>
                         <input type="number" min="0" required value={form.stockQuantity} onChange={e => setForm({ ...form, stockQuantity: e.target.value })} className={inputCls} placeholder="0" />

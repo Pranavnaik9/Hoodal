@@ -109,6 +109,7 @@ export function AdminSuppliersPage() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="table-responsive">
                 <table className="w-full">
                     <thead className="bg-white/5">
                         <tr className="text-gray-400 text-xs uppercase">
@@ -143,6 +144,7 @@ export function AdminSuppliersPage() {
                         ))}
                     </tbody>
                 </table>
+                </div>
                 {filtered.length === 0 && <p className="text-center text-gray-500 py-8">No suppliers found</p>}
             </div>
 
@@ -213,7 +215,7 @@ export function AdminSuppliersPage() {
                                 <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                                     <CreditCard className="h-5 w-5 text-indigo-400" /> Record New Payment
                                 </h4>
-                                <form onSubmit={handleAddPayment} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                                <form onSubmit={handleAddPayment} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
                                     <div>
                                         <label className="block text-xs font-medium text-gray-400 mb-1">Amount</label>
                                         <div className="relative">

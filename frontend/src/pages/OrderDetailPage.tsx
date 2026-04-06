@@ -65,7 +65,7 @@ export function OrderDetailPage() {
                     </div>
 
                     {order.status === 'OUT_FOR_DELIVERY' && (
-                        <div className="mb-6 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-between">
+                        <div className="mb-6 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                             <div>
                                 <h3 className="text-white font-medium">Order is out for delivery!</h3>
                                 <p className="text-gray-400 text-sm">Please confirm when you receive your items.</p>
@@ -88,7 +88,7 @@ export function OrderDetailPage() {
                     )}
 
                     {/* Delivery */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="bg-white/5 rounded-xl p-4">
                             <h3 className="text-gray-400 text-sm mb-2 flex items-center gap-1"><MapPin className="h-4 w-4" /> Delivery</h3>
                             <p className="text-white text-sm">{order.deliveryName}</p>

@@ -77,49 +77,52 @@ export function CartPage() {
                                 {/* Items */}
                                 <div className="divide-y divide-white/5">
                                     {cart.CartItem.map(item => (
-                                        <div key={item.id} className="px-6 py-4 flex items-center gap-4">
-                                            <div className="w-16 h-16 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0">
-                                                {item.product.imageUrl ? (
-                                                    <img src={item.product.imageUrl} alt="" className="w-full h-full object-cover rounded-lg" />
-                                                ) : (
-                                                    <Store className="h-6 w-6 text-gray-600" />
-                                                )}
+                                        <div key={item.id} className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                                            <div className="flex items-center gap-3 flex-1 min-w-0">
+                                                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                    {item.product.imageUrl ? (
+                                                        <img src={item.product.imageUrl} alt="" className="w-full h-full object-cover rounded-lg" />
+                                                    ) : (
+                                                        <Store className="h-6 w-6 text-gray-600" />
+                                                    )}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <h3 className="text-white text-sm font-medium truncate">{item.product.name}</h3>
+                                                    <p className="text-indigo-400 text-sm">₹{item.price}</p>
+                                                </div>
                                             </div>
 
-                                            <div className="flex-1">
-                                                <h3 className="text-white text-sm font-medium">{item.product.name}</h3>
-                                                <p className="text-indigo-400 text-sm">₹{item.price}</p>
-                                            </div>
+                                            <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 pl-[calc(3.5rem+0.75rem)] sm:pl-0">
+                                                <div className="flex items-center gap-2">
+                                                    <button onClick={() => updateQty(item.id, item.quantity - 1)}
+                                                        className="bg-white/10 p-1.5 rounded-lg hover:bg-white/20 text-gray-300">
+                                                        <Minus className="h-4 w-4" />
+                                                    </button>
+                                                    <span className="text-white w-8 text-center">{item.quantity}</span>
+                                                    <button onClick={() => updateQty(item.id, item.quantity + 1)}
+                                                        className="bg-white/10 p-1.5 rounded-lg hover:bg-white/20 text-gray-300">
+                                                        <Plus className="h-4 w-4" />
+                                                    </button>
+                                                </div>
 
-                                            <div className="flex items-center gap-2">
-                                                <button onClick={() => updateQty(item.id, item.quantity - 1)}
-                                                    className="bg-white/10 p-1.5 rounded-lg hover:bg-white/20 text-gray-300">
-                                                    <Minus className="h-4 w-4" />
+                                                <p className="text-white font-medium min-w-[60px] text-right">₹{(Number(item.price) * item.quantity).toFixed(0)}</p>
+
+                                                <button onClick={() => removeItem(item.id)} className="text-gray-500 hover:text-red-400">
+                                                    <Trash2 className="h-4 w-4" />
                                                 </button>
-                                                <span className="text-white w-8 text-center">{item.quantity}</span>
-                                                <button onClick={() => updateQty(item.id, item.quantity + 1)}
-                                                    className="bg-white/10 p-1.5 rounded-lg hover:bg-white/20 text-gray-300">
-                                                    <Plus className="h-4 w-4" />
-                                                </button>
                                             </div>
-
-                                            <p className="text-white font-medium w-20 text-right">₹{(Number(item.price) * item.quantity).toFixed(0)}</p>
-
-                                            <button onClick={() => removeItem(item.id)} className="text-gray-500 hover:text-red-400">
-                                                <Trash2 className="h-4 w-4" />
-                                            </button>
                                         </div>
                                     ))}
                                 </div>
 
                                 {/* Footer */}
-                                <div className="bg-white/5 px-6 py-4 flex items-center justify-between border-t border-white/10">
-                                    <p className="text-gray-400">
+                                <div className="bg-white/5 px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-white/10">
+                                    <p className="text-gray-400 text-center sm:text-left">
                                         Subtotal: <span className="text-white font-bold text-lg">₹{getCartTotal(cart).toFixed(0)}</span>
                                     </p>
                                     <button
                                         onClick={() => navigate(`/checkout/${cart.shopId}`)}
-                                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2.5 rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25 flex items-center gap-2"
+                                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2.5 rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2"
                                     >
                                         Checkout <ArrowRight className="h-4 w-4" />
                                     </button>

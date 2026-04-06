@@ -107,7 +107,7 @@ export function AdminPOSSalesPage() {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="grid grid-cols-3 gap-4 text-sm">
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
                                         <div><span className="text-gray-500">Subtotal:</span> <span className="text-white ml-1">₹{Number(sale.subtotal).toFixed(2)}</span></div>
                                         <div><span className="text-gray-500">GST:</span> <span className="text-indigo-400 ml-1">₹{Number(sale.tax).toFixed(2)}</span></div>
                                         <div><span className="text-gray-500">Payment:</span> <span className="text-emerald-400 ml-1">{sale.paymentMethod}</span></div>

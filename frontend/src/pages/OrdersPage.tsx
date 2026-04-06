@@ -48,7 +48,7 @@ export function OrdersPage() {
                             <Link
                                 key={order.id}
                                 to={`/orders/${order.id}`}
-                                className="bg-white/5 border border-white/10 rounded-xl p-5 flex items-center justify-between hover:border-indigo-500/30 transition-colors block"
+                                className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-indigo-500/30 transition-colors block"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="bg-indigo-500/20 p-2.5 rounded-lg">

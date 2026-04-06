@@ -54,7 +54,7 @@ export function HomePage() {
                         Your neighbourhood marketplace
                     </div>
 
-                    <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6">
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
                             Shop Local,
                         </span>
@@ -62,21 +62,21 @@ export function HomePage() {
                         <span className="text-white">Shop Smart</span>
                     </h1>
 
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                    <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 px-2 sm:px-0">
                         Discover stores in your neighbourhood. Browse their catalogues, add to cart, and get your favourite products — all from <strong className="text-indigo-400">HOODAL</strong>.
                     </p>
 
-                    <div className="flex gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Link
                             to="/marketplace"
-                            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3.5 rounded-xl text-lg font-medium hover:from-indigo-500 hover:to-purple-500 transition-all shadow-xl shadow-indigo-500/25 flex items-center gap-2"
+                            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white w-full sm:w-auto px-8 py-3.5 rounded-xl text-lg font-medium hover:from-indigo-500 hover:to-purple-500 transition-all shadow-xl shadow-indigo-500/25 flex items-center justify-center gap-2"
                         >
                             Browse Shops <ArrowRight className="h-5 w-5" />
                         </Link>
                         {!isAuthenticated && (
                             <Link
                                 to="/register"
-                                className="bg-white/10 backdrop-blur text-white px-8 py-3.5 rounded-xl text-lg font-medium hover:bg-white/20 transition-all border border-white/20"
+                                className="bg-white/10 backdrop-blur text-white w-full sm:w-auto px-8 py-3.5 rounded-xl text-lg font-medium hover:bg-white/20 transition-all border border-white/20 flex items-center justify-center"
                             >
                                 Get Started
                             </Link>

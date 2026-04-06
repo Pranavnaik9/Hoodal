@@ -54,7 +54,7 @@ export default function AdminProductsPage() {
                 </Link>
             </div>
 
-            <div className="flex gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <div className="flex-1 relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                     <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search products..."
@@ -68,6 +68,7 @@ export default function AdminProductsPage() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="table-responsive">
                 <table className="w-full">
                     <thead className="bg-white/5">
                         <tr className="text-gray-400 text-xs uppercase">
@@ -112,6 +113,7 @@ export default function AdminProductsPage() {
                         ))}
                     </tbody>
                 </table>
+                </div>
                 {filtered.length === 0 && <p className="text-center text-gray-500 py-8">No products found</p>}
             </div>
         </div>

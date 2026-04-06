@@ -100,7 +100,7 @@ export function AdminBulkRateUpdatePage() {
 
     return (
         <div>
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
                 <h2 className="text-2xl font-bold text-white">Bulk Rate Update & Profit Analysis</h2>
                 <div className="flex gap-2">
                     <button onClick={fetchProducts} className="bg-white/5 hover:bg-white/10 text-white px-4 py-2 rounded-xl flex items-center gap-2 text-sm border border-white/10">
@@ -114,7 +114,7 @@ export function AdminBulkRateUpdatePage() {
             </div>
 
             {/* Search + Category Filter */}
-            <div className="flex gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <div className="flex-1 relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                     <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search products..."
@@ -131,6 +131,7 @@ export function AdminBulkRateUpdatePage() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="table-responsive">
                 <table className="w-full">
                     <thead className="bg-white/5">
                         <tr className="text-gray-400 text-xs uppercase text-center">
@@ -188,6 +189,7 @@ export function AdminBulkRateUpdatePage() {
                         })}
                     </tbody>
                 </table>
+                </div>
                 {filtered.length === 0 && <p className="text-center text-gray-500 py-8">No products found</p>}
             </div>
         </div>

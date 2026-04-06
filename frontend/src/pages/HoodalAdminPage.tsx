@@ -52,7 +52,7 @@ export default function HoodalAdminPage() {
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-3">
                     <div>
                         <h1 className="text-3xl font-bold text-white">HOODAL Admin</h1>
                         <p className="text-gray-400 mt-1">Manage shops on the marketplace</p>
@@ -171,7 +171,7 @@ export default function HoodalAdminPage() {
                 ) : (
                     <div className="space-y-3">
                         {shops.map(shop => (
-                            <div key={shop.id} className="bg-white/5 border border-white/10 rounded-xl p-5 flex items-center justify-between hover:border-indigo-500/30 transition-colors">
+                            <div key={shop.id} className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-indigo-500/30 transition-colors">
                                 <div className="flex items-center gap-4">
                                     <div className="bg-indigo-500/20 p-3 rounded-xl">
                                         <Store className="h-6 w-6 text-indigo-400" />

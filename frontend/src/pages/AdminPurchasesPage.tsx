@@ -253,7 +253,7 @@ export function AdminPurchasesPage() {
                             <button onClick={clearFilters} className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1"><X className="h-3 w-3" /> Clear All</button>
                         )}
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
                         <div>
                             <label className="block text-xs text-gray-500 mb-1">Date From</label>
                             <input type="date" value={filterDateFrom} onChange={e => setFilterDateFrom(e.target.value)}
@@ -288,6 +288,7 @@ export function AdminPurchasesPage() {
 
             {/* Purchases Table */}
             <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="table-responsive">
                 <table className="w-full">
                     <thead className="bg-white/5">
                         <tr className="text-gray-400 text-xs uppercase">
@@ -339,6 +340,7 @@ export function AdminPurchasesPage() {
                         ))}
                     </tbody>
                 </table>
+                </div>
                 {filtered.length === 0 && <p className="text-center text-gray-500 py-8">No purchases found</p>}
             </div>
 
@@ -348,7 +350,7 @@ export function AdminPurchasesPage() {
                     <div className="bg-slate-800 rounded-2xl w-full max-w-3xl border border-white/10 p-6 max-h-[90vh] overflow-y-auto">
                         <h3 className="text-xl font-bold text-white mb-6">Record New Purchase</h3>
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-300 mb-1">Supplier</label>
                                     <select required value={supplierId} onChange={e => setSupplierId(e.target.value)} className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-2 text-white">
@@ -507,7 +509,7 @@ export function AdminPurchasesPage() {
 
                         <div className="flex-1 overflow-y-auto p-6 space-y-6">
                             {/* Summary */}
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 <div className="bg-white/5 p-4 rounded-xl border border-white/10">
                                     <p className="text-gray-400 text-xs uppercase mb-1">Total Amount</p>
                                     <p className="text-xl font-bold text-white">₹{detailPurchase.totalAmount.toLocaleString()}</p>

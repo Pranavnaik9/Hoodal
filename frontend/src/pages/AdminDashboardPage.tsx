@@ -78,6 +78,7 @@ export default function AdminDashboardPage() {
                     <h3 className="text-xl font-bold text-white mb-4">Today's Orders</h3>
                     <div className="bg-white/5 border border-white/10 rounded-2xl p-4 overflow-hidden">
                         {dailySummary.allOrdersToday && dailySummary.allOrdersToday.length > 0 ? (
+                            <div className="table-responsive">
                             <table className="w-full">
                                 <thead className="bg-white/5">
                                     <tr className="text-gray-400 text-xs uppercase">
@@ -102,6 +103,7 @@ export default function AdminDashboardPage() {
                                     ))}
                                 </tbody>
                             </table>
+                            </div>
                         ) : (
                             <p className="text-center text-gray-500 py-4">No incoming orders today.</p>
                         )}

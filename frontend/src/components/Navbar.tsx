@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
-import { ShoppingCart, User, LogOut, LayoutDashboard, Package, Store, Home, Map, QrCode, Heart } from 'lucide-react';
+import { ShoppingCart, User, LogOut, LayoutDashboard, Store, Home, Map, QrCode, Heart } from 'lucide-react';
 import { QRScannerModal } from './QRScannerModal';
 
 export function Navbar() {

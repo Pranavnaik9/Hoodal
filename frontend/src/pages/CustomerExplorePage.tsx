@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import { Link } from 'react-router-dom';
 import { Store, MapPin, Package, ArrowRight, Locate, Search } from 'lucide-react';

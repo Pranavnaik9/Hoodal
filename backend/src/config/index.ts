@@ -12,7 +12,7 @@ export const config = {
         expiry: process.env.JWT_EXPIRY || '7d',
     },
     upload: {
-        path: process.env.UPLOAD_PATH || './uploads',
+        path: process.env.UPLOAD_PATH || '/tmp/uploads',
         maxFileSize: parseInt(process.env.MAX_FILE_SIZE || '5242880'), // 5MB
     },
 };
